@@ -42,31 +42,29 @@ def get_all_items_URLs_on_all_pages(page=1):
         #gets all the items on the page
         get_all_item_URLs_on_page(soup)
 
+        #has no list length yet, therefor must be shown here apart and sets the length of the list after 1 page
         if page == 1:
             check_next_page = soup.find('a', class_='pagination__link').get('href')
             len_page = len(url_list)
         
-
+        #now has a list length and confirms it went through the whole page. If length is smaller then whole page getting the urls is finished.
         if (page != 1) and (get_all_item_URLs_on_page.n_add == len_page):
             check_next_page = soup.find('a', class_='pagination__link', rel='next').get('href')
        
-  
+        #checks if it has the right page link
         if check_next_page.startswith('?page='):
 
             if page + 1 == int(check_next_page[-1:]):
                 page = int(check_next_page[-1:])
 
                 print(f'going to page {page}.')
-
+                #changes the url of the page to the next page
                 url = url[:-1] + str(page)
 
             else: 
                 print(f'The url_list has {len(url_list)} items.')
                 return url_list
       
-                
-                
-
         else:
             print('The function is broken')
             break
