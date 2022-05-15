@@ -73,4 +73,3 @@ def get_all_items_URLs_on_all_pages(page=1):
 
 
 get_all_items_URLs_on_all_pages()
-

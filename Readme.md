@@ -6,5 +6,3 @@ This also shows the specifications and writes it to a CSV file.
 
 Contact: remcostuij@gmail.com
 Github: Remmie0
-
-GITTEST
